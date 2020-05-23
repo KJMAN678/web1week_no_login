@@ -36,7 +36,7 @@ def login():
             # ログインした旨のflash追加
             flash('ログインしました')
             # url_for 関数名 で"/"にリダイレクト
-            return redirect(url_for('show_entryies'))
+            return redirect(url_for('show_entries'))
     # 正しくないときはログインフォームを再表示
     return render_template('login.html')
 
