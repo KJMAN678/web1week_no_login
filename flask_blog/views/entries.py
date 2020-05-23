@@ -27,7 +27,7 @@ def add_entry():
         return redirect(url_for('login'))
     
     # ログインしていればモデルインスタンスを作成
-    entry = ENTRY(
+    entry = Entry(
         title=request.form['title'],
         text=request.form['text']
     )

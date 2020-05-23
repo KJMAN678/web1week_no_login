@@ -1,5 +1,8 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+import sys
+
+sys.path.append("/Users/kojis/anaconda3/kgs")
 
 app = Flask(__name__)
 
