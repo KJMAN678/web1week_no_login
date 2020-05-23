@@ -8,7 +8,7 @@
 
 <div class="container">
     <nav class="navbar navbar-expand-lgnavbar-light bg-light">
-        <a class="navbar-brand" href="/">Flask Blog</a>
+        <a class="navbar-brand" href="{{ url_for('show_entries') }}">Flask Blog</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Togglenavigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -18,11 +18,11 @@
                 <! カッコパーセント を使うことで条件分を使える、カッコで囲むことでサーバから渡された変数を表示することができる>
                 {% if not session.logged_in %}
                 <li class="nav-item">
-                    <a class="nav-link" href="/login">ログイン</a>
+                    <a class="nav-link" href="{{ url_for('login') }}">ログイン</a>
                 </li>
                 {% else %}
                 <li class="nav-item">
-                    <a class="nav-link" href="/logout">ログアウト</a>
+                    <a class="nav-link" href="{{ url_for('logout') }}">ログアウト</a>
                 </li>
                 {% endif %}
             </ul>

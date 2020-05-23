@@ -9,7 +9,8 @@ from flask_blog import app
 def show_entries():
     # ログインしていないときの処理
     if not session.get('logged_in'):
-        return redirect('/login')
+        # url_for 関数名 で /login にリダイレクト
+        return redirect(url_for('login'))
     # templatesフォルダ以下にあるentries/index.html を返してレンダリングする
     return render_template('entries/index.html')
 
@@ -34,8 +35,8 @@ def login():
             session['logged_in'] = True
             # ログインした旨のflash追加
             flash('ログインしました')
-            # 正しい時は "/" にリダイレクト
-            return redirect('/')
+            # url_for 関数名 で"/"にリダイレクト
+            return redirect(url_for('show_entryies'))
     # 正しくないときはログインフォームを再表示
     return render_template('login.html')
 
@@ -46,4 +47,5 @@ def logout():
     session.pop('logged_in', None)
     # ログアウトした旨のflash追加
     flash('ログアウトしました')
-    return redirect('/')
+    # url_for 関数名 で / にリダイレクト
+    return redirect(url_for('show_entries'))
