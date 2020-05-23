@@ -3,17 +3,6 @@ from flask import request, redirect, redirect, url_for, render_template, flash, 
 # __init__.py 内のappをインポート
 from flask_blog import app
 
-# URLにアクセスがあったときの処理
-@app.route('/')
-# ログインしていないときはログインフォームへリダイレクトし、ログインしている時はホームへ移動する
-def show_entries():
-    # ログインしていないときの処理
-    if not session.get('logged_in'):
-        # url_for 関数名 で /login にリダイレクト
-        return redirect(url_for('login'))
-    # templatesフォルダ以下にあるentries/index.html を返してレンダリングする
-    return render_template('entries/index.html')
-
 # /login というURLにリクエストがあったときのルーティング処理
 # method を指定するとこのURLに対するHTTPメソッドを制限できる
 # 指定しないとGETメソッドのみ指定される

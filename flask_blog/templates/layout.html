@@ -17,10 +17,16 @@
             <ul class="nav navbar-navnavbar-right">
                 <! カッコパーセント を使うことで条件分を使える、カッコで囲むことでサーバから渡された変数を表示することができる>
                 {% if not session.logged_in %}
+                <! ログイン>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url_for('login') }}">ログイン</a>
                 </li>
                 {% else %}
+                <! 新規投稿>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('new_entry') }}">新規投稿</a>
+                </li>       
+                <! ログアウト>         
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url_for('logout') }}">ログアウト</a>
                 </li>

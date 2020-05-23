@@ -3,5 +3,19 @@
 
 <! 上書きしたい内容を書く>
 {% block body %}
-投稿がありません
+<ul class="list-group list-group-flush">
+
+<! entries編すから記事を1つずつentryという名称で取り出す>
+{% for entry in entries %}
+    <div class="card">
+        <div class="card-body">
+            <! entry.title でタイトルを表示>
+            <h5 class="card-title">{{ entry.title }}</h5>
+        </div>
+    </div>
+{% else %}
+    投稿がありません
+{% endfor %}
+</ul>
+
 {% endblock %}
