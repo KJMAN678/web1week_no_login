@@ -47,9 +47,32 @@ def new_entry():
     return render_template('entries/new.html')
 
 # url_for で渡された変数idを指定する
+# int:idとすることで、idに整数以外の値が入るとエラーになる
 @app.route('/entries/<int:id>', methods=['GET'])
 def show_entry(id):
     if not session.get('logged_in'):
         return redirect(url_for('login'))
+    # 渡されたidの記事をデータベースから取得することができる
     entry = Entry.query.get(id)
     return render_template('entries/show.html', entry=entry)
+
+# 編集
+@app.route('/entries/<int:id>/edit', methods=['GET'])
+def edit_entry(id):
+    if not session.get('logged_in'):
+        return redirect(url_for('login'))
+    entry = Entry.query.get(id)
+    return render_template('entries/edit.html', entry=entry)
+
+# 上書
+@app.route('/entries/<int:id>/update', methods=['POST'])
+def update_entry(id):
+    if not session.get('logged_in'):
+        return redirect(url_for('login'))
+    entry = Entry.query.get(id)
+    entry.title = request.form['title']
+    entry.text = request.form['text']
+    db.session.merge(entry)
+    db.session.commit()
+    flash('記事が更新されました')
+    return redirect(url_for('show_entries'))

@@ -4,9 +4,16 @@
 <h2>{{ entry.title }}</h2>
 <br>
 
-{{ entry.text}}
+{{ entry.text|safe }}
 
-<br><br>
-投稿日時 {{ entry.created_at }}
+<br>
+<br>投稿日時 {{ entry.created_at }}<br>
+<br>
+
+<div class="btn-group">
+    <form action="{{url-for('edit_entry', id=entry.id) }}" method="GET">
+        <button type="submit" class="btn btn-secondary">編集</button>
+    </form>
+</div>
 
 {% endblock %}
