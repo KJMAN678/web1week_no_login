@@ -1,0 +1,15 @@
+.card {
+    margin: 0.25rem;
+}
+
+.blog-doby{
+    padding: 1.25rem;
+}
+
+.blog-body{
+    padding: 1.25em;
+}
+
+* {
+    font-family: 'Mplus 1p';
+}
