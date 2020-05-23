@@ -11,6 +11,8 @@
         <div class="card-body">
             <! entry.title でタイトルを表示>
             <h5 class="card-title">{{ entry.title }}</h5>
+            <! ビューでshow_entry()を呼び出すと、クリックしたidを渡す>
+            <a href="{{ url_for('show_entry', id=entry.id) }}" class="card-link">続きを読む</a>
         </div>
     </div>
 {% else %}
