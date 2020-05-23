@@ -1,8 +1,5 @@
 from flask_blog import app
 import os
-import sys
-
-sys.path.append("/Users/kojis/anaconda3/kgs")
 
 if __name__ == '__main__':
     port = int(os.getenv("PORT", 5000))
