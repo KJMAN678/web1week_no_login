@@ -24,12 +24,16 @@ def login():
     error = None
     if request.method == 'POST':
         if request.form['username'] != app.config['USERNAME']:
-            print('ユーザー名が異なります')
+            # flashに変更
+            flash('ユーザー名が異なります')
         elif request.form['password'] != app.config['PASSWORD']:
-            print("パスワードが異なります")
+            # flashに変更
+            flash("パスワードが異なります")
         else:
             # sessionという変数を使用 logged_inにTrueがセットされることで、ログインしていることを表す 
             session['logged_in'] = True
+            # ログインした旨のflash追加
+            flash('ログインしました')
             # 正しい時は "/" にリダイレクト
             return redirect('/')
     # 正しくないときはログインフォームを再表示
@@ -40,4 +44,6 @@ def login():
 def logout():
     # ログアウトした場合はsession情報を削除する
     session.pop('logged_in', None)
+    # ログアウトした旨のflash追加
+    flash('ログアウトしました')
     return redirect('/')

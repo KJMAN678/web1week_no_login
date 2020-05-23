@@ -29,6 +29,13 @@
         </div>
     </nav>
 
+    <! flashの表示 get_flashed_messages()>
+    {% for message in get_flashed_messages() %}
+    <div class="alert alert-info" role="alert">
+        {{ message }}
+    <div>
+    {% endfor %}
+
     <div class="blog-body">
         <! 上書き可能な部分>
         {% block body %}{% endblock %}
