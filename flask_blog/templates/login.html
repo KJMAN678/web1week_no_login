@@ -6,26 +6,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
-<div class="container">
-    <nav class="navbar navbar-expand-lgnavbar-light bg-light">
-        <a class="navbar-brand" href="/">Flask Blog</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Togglenavigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id-"navbarNav">
-            <ul class="nav navbar-navnavbar-right">
-                <li class="nav-item">
-                    <a class="nav-link" href="/login">ログイン</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/logout">ログアウト</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-
-    <div class="blog-body">
+{% extends "layout.html" %}
+{% block body %}
         <! フォーム作成>
         <form action="/login" method=post>
             <div class="form-group">
@@ -44,5 +26,4 @@
 
             <button type="submit" class="btn btn-primary">ログイン</button>
         </form>
-    </div>
-</div>
+{% endblock %}
