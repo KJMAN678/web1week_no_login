@@ -6,6 +6,39 @@
     padding: 1.25em;
 }
 
+@media (max-width: 768px) {
+    .navbar-header, .navbar-nav > li {
+        float: left;
+    }
+
+    .navbar-nav {
+        margin: 0 -15px;
+    }
+
+    .navbar-nav > li > a {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        line-height: 20px;
+    }
+
+    .navbar-collapse.collapse {
+        display: block;
+        border-top: none;
+    }
+
+    .navbar-right {
+        float: right;
+    }
+
+    .navbar-nav.navbar-right:last-child {
+        margin-right: -15px;
+    }
+
+    .navbar-toggle {
+        display: none;
+    }
+}
+
 * {
     font-family: 'Mplus 1p';
 }
