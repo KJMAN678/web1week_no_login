@@ -11,7 +11,11 @@
 
 <div class="container">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <!a class="navbar-brand" href="{{ url_for('show_entries') }}"><!/a>
+
+        <a class="navbar-brand" href="{{ url_for('show_entries') }}">Favo-Write!</a>
+        <! 新規投稿>
+        <a class="navbar-brand" href="{{ url_for('new_entry') }}">新規投稿</a>
+
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Togglenavigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -19,15 +23,6 @@
         <div class="collapse navbar-collapse" id-"navbarNav">
             <ul class="nav navbar-navnavbar-right">
                 <! カッコパーセント を使うことで条件分を使える、カッコで囲むことでサーバから渡された変数を表示することができる>
-                <! タイトル>
-                <div class="navbar-nav">
-                    <a class="nav-link" href="{{ url_for('show_entries') }}">Favo-Write!</a>
-                </div>
-                
-                <! 新規投稿>
-                <div class="navbar-nav">
-                    <a class="nav-link" href="{{ url_for('new_entry') }}">新規投稿</a>
-                </div>       
             </ul>
         </div>
     </nav>
